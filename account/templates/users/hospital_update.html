@@ -1,0 +1,40 @@
+{% extends 'users/main.html' %}
+{% block content %}
+<style>
+    .container {
+        background-color: rgb(67, 214, 214);
+        opacity: .9;
+    }
+    .profile-pic {
+        max-width: 200px;
+        max-height: 200px;
+        margin: 0 auto;
+        border-radius: 50%;
+    }
+</style>
+<div class="container emp-profile">
+    <div class="row">
+        <div class="col-md-3">
+            <div style="background-color: rgb(67, 214, 214);" class="card card-body">
+                <a href="{% url 'hospital_profile'%}" class="btn btn-warning">&#8592
+                    Back to Profile
+                </a>
+                <h3 style="text-align: center;"> Account Settings</h3>
+                <hr>
+                <img class="profile-pic" src="{{request.user.hospital.profile_pic.url}}" alt="" />
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="card card-body" style="background-color: rgb(67, 214, 214);">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{form.as_p}}
+                    <input type="submit" name="update" id="" class="btn btn-primary" value="Update">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

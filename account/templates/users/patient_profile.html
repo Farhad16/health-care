@@ -1,0 +1,73 @@
+{% extends 'users/main.html' %}
+{% block content %}
+<style>
+    .container {
+        background-color: rgb(67, 214, 214);
+        opacity: .9;
+    }
+</style>
+<div class="container emp-profile">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-img">
+                <img src="{{patient.profile_pic.url}}" alt="">
+            </div>
+            <div class="col-md-12">
+                <a href="{% url 'patient_update' %}"><input type="submit" style="background-color: rgb(202, 31, 88);"
+                        class="profile-edit-btn btn btn-warning" name="btnAddMore" value="Edit Profile" /></a>
+            </div>
+        </div>
+        <div class="col-md-4" style="font-size: 16px;">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Name</label>
+                </div>
+                <div class="col-md-6">
+                    <label>{{patient.name}}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Email</label>
+                </div>
+                <div class="col-md-6">
+                    <label>{{patient.email}}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Phone</label>
+                </div>
+                <div class="col-md-6">
+                    <label>{{patient.phone}}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Address</label>
+                </div>
+                <div class="col-md-6">
+                    <label>{{patient.address}}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Age</label>
+                </div>
+                <div class="col-md-6">
+                    <label>{{patient.age}}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Gender</label>
+                </div>
+                <div class="col-md-6">
+                    <label>{{patient.gender}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

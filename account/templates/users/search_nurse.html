@@ -1,0 +1,88 @@
+{% extends 'users/main.html' %}
+{% block content %}
+<style>
+    .container {
+        background-color: rgb(67, 214, 214);
+        opacity: .9;
+    }
+
+    .nurse-img {
+        width: 60%;
+        height: 80%;
+    }
+
+    .nurse-img img {
+        border-radius: 10px;
+    }
+</style>
+<div class="container emp-profile">
+    <div class="row" style="margin-bottom: 30px;">
+        <div class="col-md-12">
+            <form action="" methon="get">
+                {{myfilter.form}}
+                <button class="btn btn-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+    {% for nurse in nurses %}
+    <div class="row">
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Name</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{nurse.name}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Hospital</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{nurse.hospital}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Experince</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{nurse.experience}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Working Days</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{nurse.working_days}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Fees Per Day</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{nurse.fee_per_day}}</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3    ">
+                <a href="{% url 'hire_nurse' nurse.id %}"><input type="submit" class="profile-edit-btn"
+                        name="btnAddMore" value="Hire" /></a>
+            </div>
+            <div class="col-md-3">
+                <a href="{% url 'nurse_details' nurse.id %}"><input type="submit" class="profile-edit-btn"
+                        name="btnAddMore" value="View Details" /></a>
+            </div>
+        </div>
+    </div>
+    </br>
+    <hr>
+    </br>
+    {% endfor %}
+</div>
+
+{% endblock %}

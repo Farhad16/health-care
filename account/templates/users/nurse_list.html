@@ -1,0 +1,71 @@
+{% extends 'users/main.html' %}
+{% block content %}
+<style>
+    .container {
+        background-color: rgb(67, 214, 214);
+        opacity: .9;
+    }
+
+    .font-change {
+        font-weight: bold;
+        color: rgb(59, 16, 161);
+    }
+
+    .font-change:hover {
+        text-decoration: none;
+        color: rgb(189, 13, 36);
+    }
+
+    .profile-add-btn {
+        border: none;
+        border-radius: 5px;
+        width: 50%;
+        padding: 2%;
+        font-weight: 600;
+        color: #e95c39;
+        cursor: pointer;
+        background-color: rgb(253, 255, 128);
+        margin-bottom: 20px;
+        float: left;
+    }
+</style>
+
+
+<div class="container emp-profile">
+    <div class="col-md-4">
+        <a href="{% url 'add_nurse'%}"><input type="submit" class="profile-add-btn" name="btnAddMore"
+                value="Add Nurse" /></a>
+    </div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">S.N</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                <th scope="col">Experience</th>
+                <th scope="col">View</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        {% for nurse in nurses %}
+        <tbody>
+            <tr>
+                <th scope="row">{{forloop.counter}}</th>
+                <td>{{nurse.name}}</td>
+                <td>{{nurse.email}}</td>
+                <td>{{nurse.phone}}</td>
+                <td>{{nurse.address}}</td>
+                <td>{{nurse.experience}}</td>
+                <td><a href="{% url 'view_nurse' nurse.id%}" class="font-change">View</a></td>
+                <td><a href="{% url 'update_nurse' nurse.id %}" class="font-change">Update</a></td>
+                <td><a href="{% url 'delete_nurse' nurse.id%}" class="font-change">Delete</a></td>
+            </tr>
+        </tbody>
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

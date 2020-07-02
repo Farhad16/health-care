@@ -1,0 +1,154 @@
+{% extends 'users/main.html' %}
+{% block content %}
+
+
+<style>
+    .container {
+        background-color: rgb(67, 214, 214);
+        opacity: .9;
+    }
+</style>
+
+<form action="" method="POST" encrypte="multipart/form-data">
+    {% csrf_token %}
+    <div class="container bootstrap snippet">
+        <div class="row">
+            <div class="col-md-3" style="margin-top: 50px;">
+                <a href="{% url 'dashboard'%}" class="btn btn-warning">&#8592
+                    Back to Profile
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-3">
+                <br>
+                <div class="text-center">
+                    <img src="data:image/jpeg;base64,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"
+                        class=" avatar img-circle img-thumbnail" alt="avatar" style="margin-top: 30px;">
+                    <h6>Upload a different photo...</h6>
+                    <input type="file" class="text-center center-block file-upload">
+                </div>
+            </div>
+            <!--/col-3-->
+            <div class="col-sm-9">
+                <h1>{{nurse.name}}</h1>
+                <div class="tab-content">
+                    <br>
+                    <div class="tab-pane active" id="home">
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="first_name">
+                                    <h4>Name</h4>
+                                </label>
+                                <label>{{form.name}}</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="first_name">
+                                    <h4>Hospital</h4>
+                                </label>
+                                <label>{{form.hospital}}</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="last_name">
+                                    <h4>Email</h4>
+                                </label>
+                                <label>{{form.email}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="address">
+                                    <h4>Address</h4>
+                                </label>
+                                <label>{{form.address}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="phone">
+                                    <h4>Phone</h4>
+                                </label>
+                                <label>{{form.phone}}</label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <label for="gender">
+                                    <h4>Gender</h4>
+                                </label>
+                                <label>{{form.gender}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="email">
+                                    <h4>Qualification</h4>
+                                </label>
+                                <label>{{form.qualification}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="experience">
+                                    <h4>Experience</h4>
+                                </label>
+                                <label>{{form.experience}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <label for="working_days">
+                                    <h4>Woking days</h4>
+                                </label>
+                                <label>{{form.working_days}}</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+
+                            <div class="col-xs-6">
+                                <table>
+                                </table>
+                                <tr>
+                                    <td><label for="fee_per_day">
+                                            <h4>Fees per day</h4>
+                                        </label></td>
+                                    <label>{{form.fee_per_day}}</label>
+                                    <td></td>
+                                </tr>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                <br>
+                                <input style="padding: 7px 20px; margin-bottom: 50px;" class="btn btn-success"
+                                    type="submit" name="Submit" id="" value="Save">
+                                </br>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--/tab-pane-->
+            </div>
+            <!--/tab-content-->
+
+        </div>
+        <!--/col-9-->
+    </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,108 @@
+{% extends 'users/main.html' %}
+{% block content %}
+<style>
+    .container {
+        background-color: rgb(67, 214, 214);
+        opacity: .9;
+    }
+</style>
+<form action="{% url 'delete_nurse' nurse.id%}" method="POST">
+    <div class="container emp-profile">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-10" style="padding-bottom: 30px;">
+                    <p style="font-size: 18px;">Are you want to <strong style="color: red;">delete</strong>
+                        <span style="color: rgb(216, 44, 44);">"{{nurse.name}}"</span></p>
+                    <a href="{% url 'nurse_list'%}">Cancel</a>
+                    <input type="submit" class="btn btn-danger" value="Confirm">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="profile-img">
+                    <img src="{{nurse.profile_pic.url}}" alt="" />
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="profile-head">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Name</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{nurse.name}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Email</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{nurse.email}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Hospital</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{nurse.hospital}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Gender</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{nurse.gender}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Phone</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>nurse.phone</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Address</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{nurse.address}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Qualification</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{nurse.qualification}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Experience</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{nurse.experience}}</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label>Fees per day</label>
+                        </div>
+                        <div class="col-md-6">
+                            <label>{{nurse.fee_per_day}}</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+{% endblock %}

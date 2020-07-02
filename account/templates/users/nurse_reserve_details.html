@@ -1,0 +1,102 @@
+{% extends 'users/main.html' %}
+{% block content %}
+<style>
+    .container {
+        background-color: rgb(67, 214, 214);
+        opacity: .9;
+    }
+</style>
+<div class="container emp-profile">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-img">
+                <img src="{{hire.patient.profile_pic.url}}" alt="" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="profile-head">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Name</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{hire.patient.name}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Email</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{hire.patient.email}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Age</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{hire.patient.age}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Gender</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{hire.patient.gender}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Phone</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{hire.patient.phone}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Address</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{hire.patient.address}}</label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Nurse Name</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{hire.nurse.name}}</label>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <br>
+            <br>
+            <label style="font-size: 25px;">Preciption Picture</label>
+        </div>
+        <div class="col-md-4">
+            <br>
+            <br>
+            <label></label>
+        </div>
+        <div class="">
+            <div class="profile-img">
+                <img src="{{hire.prescribe_pic.url}}" alt="" />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock %}

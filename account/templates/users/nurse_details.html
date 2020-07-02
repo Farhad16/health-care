@@ -1,0 +1,108 @@
+{% extends 'users/main.html' %}
+{% block content %}
+<style>
+    .container {
+        background-color: rgb(67, 214, 214);
+        opacity: .9;
+    }
+</style>
+
+<div class="container emp-profile">
+    <div class="row">
+        <div class="col-md-3" style="margin-bottom: 50px;">
+            <a href="{% url 'search_nurse'%}" class="btn btn-warning">&#8592
+                Back to Search
+            </a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-img">
+                <img src="{{nurse.profile_pic.url}}" alt="" />
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="profile-head">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Name</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{nurse.name}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Email</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{nurse.email}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Hospital</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{nurse.hospital}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Gender</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{nurse.gender}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Phone</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>nurse.phone</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Address</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{nurse.address}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Qualification</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{nurse.qualification}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Experience</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{nurse.experience}}</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label>Fees per day</label>
+                    </div>
+                    <div class="col-md-6">
+                        <label>{{nurse.fee_per_day}}</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <a href="{% url 'hire_nurse' nurse.id%}"><input type="submit" class="profile-add-btn" name="btnAddMore"
+                    value="Hire Nurse" /></a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

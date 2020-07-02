@@ -1,0 +1,65 @@
+{% extends 'users/main.html' %}
+{% block content %}
+<style>
+    .container {
+        background-color: rgb(67, 214, 214);
+        opacity: .9;
+    }
+</style>
+<div class="container emp-profile">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="profile-img">
+                <img src="{{hospital.profile_pic.url}}" alt="">
+            </div>
+            <div class="col-md-12">
+                <a href="{% url 'hospital_update'%}"><input type="submit" class="profile-edit-btn" name="btnAddMore"
+                        value="Edit Profile" /></a>
+            </div>
+        </div>
+        <div class="col-md-4" style="font-size: 16px;">
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Name</label>
+                </div>
+                <div class="col-md-6">
+                    <label>{{hospital.name}}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Email</label>
+                </div>
+                <div class="col-md-6">
+                    <label>{{hospital.email}}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Phone</label>
+                </div>
+                <div class="col-md-6">
+                    <label>{{hospital.phone}}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Address</label>
+                </div>
+                <div class="col-md-6">
+                    <label>{{hospital.address}}</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <label>Register No</label>
+                </div>
+                <div class="col-md-6">
+                    <label>{{hospital.register_no}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

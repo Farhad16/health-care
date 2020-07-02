@@ -1,0 +1,58 @@
+{% extends 'users/main.html' %}
+
+{% block content %}
+<style>
+    .linkstyle {
+        color: rgb(238, 20, 20);
+        padding: 15px;
+        font-weight: bold;
+        background-color: #e9e061;
+        border-radius: 10px;
+    }
+
+    .linkstyle:hover {
+        background-color: rgb(5, 40, 44);
+        color: rgb(255, 56, 72);
+        text-decoration: none;
+    }
+</style>
+<div class="row position">
+    <div class="col">
+        <div class="col-md">
+            <div class="card text-center text-white mb-3" id="abouthealth">
+                <div class="card-header">
+                    <h3 class="card-title" style="color: rgb(0, 0, 0); font-weight: bold;text-align: left;">Health
+                        care</h3>
+                </div>
+                <div class="card-body">
+                    <p style="color: black; font-style: italic; font-size: 16px; text-align: left; font-weight: 100;">
+                        Heath Care is a home nursing service. Where you can appoint a nurse at home.
+                        We have many professional nurse. You don't need to go hospital, we provide you well trained
+                        nurse to take care of yours.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="col-md" style="margin-top:20px ;">
+            <div>
+                <h4 class="card-title" style="color: rgb(0, 0, 0); font-weight: bold;text-align: center;">
+                    <a class="linkstyle" href="{% url 'register'%}">
+                        SignUp As Hospital >>
+                    </a>
+                </h4>
+            </div>
+            <h1 style="text-align: center; font-weight: bold; color:rgb(238, 20, 20);">OR</h1>
+            <div style="margin-top:20px ;">
+                <h4 class="card-title"
+                    style="color: rgb(0, 0, 0); font-weight: bold;text-decoration: none; text-align: center;">
+                    <a href="{% url 'search_nurse'%}" class="linkstyle">
+                        SignUp As Patient >>
+                    </a>
+                </h4>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
