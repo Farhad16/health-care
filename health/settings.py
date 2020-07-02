@@ -25,8 +25,7 @@ SECRET_KEY = '8mg$u2=8j3y8$g3-po-1xsh&g_!eaw!%+kk(m(mxl9ndphv4wf'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['https://health-care1.herokuapp.com/',
-                 'http://127.0.0.1:8000/']
+ALLOWED_HOSTS = ['https://health-care1.herokuapp.com/']
 
 
 # Application definition
